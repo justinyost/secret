@@ -1,0 +1,13 @@
+[05-Dec-2009 21:49:49] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home/yostivan/public_html/subdomains/secret/sendEmails.php on line 16
+[05-Dec-2009 21:55:36] PHP Parse error:  syntax error, unexpected T_STRING in /home/yostivan/public_html/subdomains/secret/sendEmails.php on line 24
+[05-Dec-2009 21:59:57] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ',' or ';' in /home/yostivan/public_html/subdomains/secret/sendEmails.php on line 32
+[05-Dec-2009 22:08:54] PHP Parse error:  syntax error, unexpected T_BOOLEAN_AND, expecting ',' or ')' in /home/yostivan/public_html/subdomains/secret/sendEmails.php on line 41
+[05-Dec-2009 23:41:11] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/yostivan/public_html/subdomains/secret/sendEmails.php on line 122
+[06-Dec-2009 00:53:31] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/yostivan/public_html/subdomains/secret/sendEmails.php on line 89
+[06-Dec-2009 00:55:13] PHP Warning:  Invalid argument supplied for foreach() in /home/yostivan/public_html/subdomains/secret/sendEmails.php on line 69
+[06-Dec-2009 00:55:18] PHP Warning:  Invalid argument supplied for foreach() in /home/yostivan/public_html/subdomains/secret/sendEmails.php on line 69
+[06-Dec-2009 01:53:06] PHP Warning:  Invalid argument supplied for foreach() in /home/yostivan/public_html/subdomains/secret/sendEmails.php on line 69
+[06-Dec-2009 01:53:12] PHP Warning:  Invalid argument supplied for foreach() in /home/yostivan/public_html/subdomains/secret/sendEmails.php on line 69
+[06-Dec-2009 01:53:14] PHP Warning:  Invalid argument supplied for foreach() in /home/yostivan/public_html/subdomains/secret/sendEmails.php on line 69
+[06-Dec-2009 01:54:27] PHP Warning:  Invalid argument supplied for foreach() in /home/yostivan/public_html/subdomains/secret/sendEmails.php on line 69
+[06-Dec-2009 01:54:30] PHP Warning:  Invalid argument supplied for foreach() in /home/yostivan/public_html/subdomains/secret/sendEmails.php on line 69
