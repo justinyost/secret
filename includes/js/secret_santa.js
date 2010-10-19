@@ -1,7 +1,3 @@
-/* Copyright (c) 2009 Justin Yost
- * MIT Lincese (see copyright.txt)
- */
- 
 var number_ppl = null;
 var addedString = null;
 var names = null;

@@ -96,8 +96,3 @@
 		</script>
 	</body>
 </html>
-<?php
-/* Copyright (c) 2009 Justin Yost
- * MIT Lincese (see copyright.txt)
- */
-?>

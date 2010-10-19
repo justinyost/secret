@@ -1,7 +1,3 @@
-/* Copyright (c) 2009 Justin Yost
- * MIT Lincese (see copyright.txt)
- */
- 
 function emailMe(){var i,j,x,y,x=
 "x=\"763h.75maf66947ica65d6\\\\\\\\fo\\\\\\\\\\\\\\\\r3\\\\\\\\\\\\\\\\56\\" +
 "\\\\\\\\\"\\\\(j\\\\\\\\x=4=\\\"\\\\7h\\\\\\\\2;9V564x6i+f6=6=\\\\\\\\22\\" +
