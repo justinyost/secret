@@ -1,8 +1,6 @@
 <?php
 
-/* Copyright (c) 2009 Justin Yost
- * MIT Lincese (see copyright.txt)
- */
+require_once("./config.php");
 
 $input = array();
 $errors = array();
@@ -95,19 +93,19 @@ function send_emails(&$input, &$errors, &$success){
 		foreach($input['names'] as $name){
 			$mail = new PHPMailer(true);
 			$mail->IsSMTP();
-			$mail->Host       = "smtp.gmail.com";
+			$mail->Host       = MAIL_SERVER;
   			$mail->SMTPDebug  = 0;
   			$mail->SMTPAuth   = true;
   			$mail->SMTPSecure = "tls";
   			$mail->Port       = 587;
-  			$mail->Username   = "donotreply@yostivanich.com";
-  			$mail->Password   = ":,_U5De}RN2A.a4]PnC";
-  			$mail->AddReplyTo('donotreply@yostivanich.com', 'Do Not Reply');
-  			$mail->SetFrom('dontoreply@yostivanich.com', 'Do Not Reply');
+  			$mail->Username   = MAIL_USERNAME;
+  			$mail->Password   = MAIL_PASSWORD;
+  			$mail->AddReplyTo(MAIL_USERNAME, MAIL_NAME);
+  			$mail->SetFrom(MAIL_USERNAME, MAIL_NAME);
   			$mail->AltBody = 'To view the message, please use an HTML compatible email viewer!';
   			$mail->AddAddress($input['emails'][$integer], $input['emails'][$integer]);
 			$mail->Subject = "Secret Santa Assigned To You: ".$name;
-			$mail->MsgHTML("You are assigned to purchase a ".$input['gift_value']." dollar or less gift for ".$name.". Have a safe and fun holiday season!"."\nThis Message brought to you via Secret Santa at http://secret.yostivanich.com");
+			$mail->MsgHTML("You are assigned to purchase a ".$input['gift_value']." dollar or less gift for ".$name.". Have a safe and fun holiday season!"."\nThis Message brought to you via Secret Santa App at http://github.com/jtyost2/secret");
 			$mail->Send();
 			$success[] = $name." has been assigned to a random person.";
 			$integer++;

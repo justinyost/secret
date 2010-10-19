@@ -1,1 +1,4 @@
 Secret Santa Basic WebApp
+
+To Install
+1. Edit and Rename ./config.sample.php as config.php
