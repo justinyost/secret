@@ -17,11 +17,6 @@
 		<meta http-equiv="X-UA-Compatible" content="chrome=1"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=8" />
 		<meta http-equiv="description" content="A simple and open source web app to do a random secret santa drawing."/>
-		<meta http-equiv="copyright" content="http://secret.yostivanich.com/copyright.txt"/>
-		
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="http://www.yostivanich.com/wordpress/wp-content/themes/my_vigilance/images/favicon.ico" />
-    	<link rel="apple-touch-icon" href="http://www.yostivanich.com/wordpress/wp-content/themes/my_vigilance/images/YostivanichIcon.png" />
     	
     	<link rel="canonical" href="http://secret.yostivanich.com/" />
     	<?php $rand_key = mktime(); mt_srand($rand_key); $form_key = mt_rand(); ?>
@@ -86,7 +81,7 @@
 		</div>
 		
 		<!--JS-->
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 		<script type="text/javascript" src="./includes/js/secret_santa.js" charset="utf-8"></script>
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
