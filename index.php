@@ -33,7 +33,7 @@
 			<div id="what">
 			</div>
 			<div id="form">
-				<form action="sendEmails.php" name="sendEmails" method="get" onsubmit="submitSendEmails(); return false;">
+				<form action="sendEmails.php" name="sendEmails" method="get">
 					<fieldset>
 						<legend>Add Each Person and Their Email</legend>
 						<div class="span-7 colborder" id="formName">
@@ -59,8 +59,8 @@
 							</p>
 						</div>
 						<div class="span-24">
-							<p><input type="button" value="Add Another Person" onclick="addAnotherPerson();"></input></p>
-						<p><input type="submit" value="Shuffle and Send Emails"></input></p>
+							<p><input type="button" id="addAnotherPerson" value="Add Another Person"></input></p>
+							<p><input type="submit" id="submit" value="Shuffle and Send Emails"></input></p>
 						</div>
 						<input type="hidden" value="<?php echo $rand_key; ?>" name="rand_key" id="rand_key"/>
 						<input type="hidden" value="<?php echo $form_key; ?>" name="form_key" id="form_key"/>

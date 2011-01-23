@@ -95,9 +95,9 @@ function send_emails(&$input, &$errors, &$success){
 			$mail->IsSMTP();
 			$mail->Host       = MAIL_SERVER;
   			$mail->SMTPDebug  = 0;
-  			$mail->SMTPAuth   = true;
-  			$mail->SMTPSecure = "tls";
-  			$mail->Port       = 587;
+  			$mail->SMTPAuth   = SMTP_AUTH;
+  			$mail->SMTPSecure = SMTP_SECURE;
+  			$mail->Port       = SMTP_PORT;
   			$mail->Username   = MAIL_USERNAME;
   			$mail->Password   = MAIL_PASSWORD;
   			$mail->AddReplyTo(MAIL_USERNAME, MAIL_NAME);
@@ -105,7 +105,8 @@ function send_emails(&$input, &$errors, &$success){
   			$mail->AltBody = 'To view the message, please use an HTML compatible email viewer!';
   			$mail->AddAddress($input['emails'][$integer], $input['emails'][$integer]);
 			$mail->Subject = "Secret Santa Assigned To You: ".$name;
-			$mail->MsgHTML("You are assigned to purchase a ".$input['gift_value']." dollar or less gift for ".$name.". Have a safe and fun holiday season!"."\nThis Message brought to you via Secret Santa App at http://github.com/jtyost2/secret");
+			$messageHtml = "You are assigned to purchase a ".$input['gift_value']." dollar or less gift for ".$name.". Have a safe and fun holiday season!"." This Message brought to you via Secret Santa App at http://github.com/jtyost2/secret"
+			$mail->MsgHTML($messageHtml);
 			$mail->Send();
 			$success[] = $name." has been assigned to a random person.";
 			$integer++;

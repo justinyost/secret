@@ -1,52 +1,71 @@
-var number_ppl = null;
-var addedString = null;
-var names = null;
-var i = 0;
-var names=new Array();
-var emails=new Array();
-
 function addAnotherPerson(){
-	number_ppl = $("div#form :input#number_ppl").val();
+	var formDiv = $("#form");
+	
+	var number_ppl = formDiv.find("#number_ppl").val();
 	number_ppl++;
-	$("div#form :input#number_ppl").val(number_ppl);
 	
+	formDiv.find("#number_ppl").val(number_ppl);
+	
+	var addedString = null;
 	addedString = "<p><label for='name_" + number_ppl + "'>Name:</label><br/><input type='text' maxlength='255' value='' name='name_" + number_ppl + "' class='formNames'></input></p>";
-	$("div#form div#formName").append(addedString);
-	addedString = "<p><label for='email_" + number_ppl + "'>Email:</label><br/><input type='text' maxlength='255' value='' name='email_" + number_ppl + "'  class='formEmails'></input></p>";
-	$("div#form div#formEmail").append(addedString);
+	formDiv.find("#formName").append(addedString);
 	
+	addedString = null;
+	
+	addedString = "<p><label for='email_" + number_ppl + "'>Email:</label><br/><input type='text' maxlength='255' value='' name='email_" + number_ppl + "'  class='formEmails'></input></p>";
+	formDiv.find("#formEmail").append(addedString);
 }
 
 function submitSendEmails(){
-	$("div#form :submit").toggleClass("hidden", true);
-	$("div#onSubmit").toggleClass("hidden", false);
-	$("div#form").toggleClass("hidden", true);
+	var formDiv = $("#form");
+	formDiv
+		.toggleClass("hidden", true)
+		.find("#submit").toggleClass("hidden", true);
+	$("#onSubmit").toggleClass("hidden", false);
+	formDiv.toggleClass("hidden", true);
 	
-	$("div#form :input.formNames").each(function(i) { names[i] = $(this).val(); });
+	var names=new Array();
+	formDiv.find(".formNames").each(function(i) { names[i] = $(this).val(); });
 	
-	$("div#form :input.formEmails").each(function(i) { emails[i] = $(this).val(); });
+	var emails=new Array();
+	formDiv.find(".formEmails").each(function(i) { emails[i] = $(this).val(); });
 	
-	$.get($("div#form :input#script").val(), {
-			rand_key: $("div#form :input#rand_key").val(),
-			form_key: $("div#form :input#form_key").val(),
-			number_ppl: $("div#form :input#number_ppl").val(),
+	$.get(formDiv.find("#script").val(), {
+			rand_key: formDiv.find("#rand_key").val(),
+			form_key: formDiv.find("#form_key").val(),
+			number_ppl: formDiv.find("#number_ppl").val(),
 			'names[]': names,
 			'emails[]': emails,
-			gift_value: $("div#form :input#gift_value").val(),
+			gift_value: formDiv.find("#gift_value").val(),
 		},
 		function(data){
-  			$("div#results").html(data);
-  			$("div#results").toggleClass("hidden", false);
-  			$("div#form :submit").toggleClass("hidden", false);
-  			$("div#form").toggleClass("hidden", true);
-  			$("div#onSubmit").toggleClass("hidden", true);
+  			$("#results").html(data).toggleClass("hidden", false);
+  			formDiv
+  				.toggleClass("hidden", true)
+  				.find("#submit").toggleClass("hidden", false);
+  			$("#onSubmit").toggleClass("hidden", true);
 		}
 	);
 }
 
 function displayForm(){
-	$("div#form").toggleClass("hidden", false);
-	$("div#form :submit").toggleClass("hidden", false);
+	var formDiv = $("div#form");
+	
+	formDiv
+		.toggleClass("hidden", false)
+		.find(":submit").toggleClass("hidden", false);
+	
 	$("div#results").toggleClass("hidden", true);
 	$("div#onSubmit").toggleClass("hidden", true);
 }
+
+$(document).ready(function(){
+	$('#addAnotherPerson').live('click', function(){
+		addAnotherPerson();
+	});
+	
+	$('#form form').live('submit', function(){
+		submitSendEmails();
+		return false;
+	});
+});
