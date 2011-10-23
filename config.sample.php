@@ -4,6 +4,8 @@ define('MAIL_USERNAME', "USERNAME@DOMAIN.COM");
 define('MAIL_PASSWORD', "PASSWORD");
 define('MAIL_NAME', "NAME ON ACCOUNT");
 define('MAIL_SERVER', "SERVER_ADDRESS");
+define('GOOGLE_ANALYTICS_ID', 'UA-XXXXXXXX-X');
+define('CANONICAL_URL', 'URL_OF_INSTALL_LOCATION');
 
 //Most likely will not need to change
 define('SMTP_AUTH', true);

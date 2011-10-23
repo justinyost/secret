@@ -7,12 +7,12 @@ function addAnotherPerson(){
 	formDiv.find("#number_ppl").val(number_ppl);
 	
 	var addedString = null;
-	addedString = "<p><label for='name_" + number_ppl + "'>Name:</label><br/><input type='text' maxlength='255' value='' name='name_" + number_ppl + "' class='formNames'></input></p>";
+	addedString = "<p><label for='name_" + number_ppl + "'>Name:</label><br/><input type='text' maxlength='255' value='' name='name_" + number_ppl + "' class='formNames' tabIndex='" + (number_ppl * 2) +"'></input></p>";
 	formDiv.find("#formName").append(addedString);
 	
 	addedString = null;
 	
-	addedString = "<p><label for='email_" + number_ppl + "'>Email:</label><br/><input type='text' maxlength='255' value='' name='email_" + number_ppl + "'  class='formEmails'></input></p>";
+	addedString = "<p><label for='email_" + number_ppl + "'>Email:</label><br/><input type='email' maxlength='255' value='' name='email_" + number_ppl + "'  class='formEmails' tabIndex='" + ((number_ppl * 2) + 1) +"'></input></p>";
 	formDiv.find("#formEmail").append(addedString);
 }
 

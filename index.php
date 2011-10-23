@@ -18,13 +18,15 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=8" />
 		<meta http-equiv="description" content="A simple and open source web app to do a random secret santa drawing."/>
     	
-    	<link rel="canonical" href="http://secret.yostivanich.com/" />
+    	<?php require_once("./config.php"); ?>
+    	
+    	<link rel="canonical" href="<?php echo CANONICAL_URL; ?>" />
     	<?php $rand_key = mktime(); mt_srand($rand_key); $form_key = mt_rand(); ?>
 	</head>
 	<body class="container">
 	
 		<div class="header span-24">
-			<a href="http://secret.yostivanich.com/"><h1 id="title">secret Santa</h1></a>
+			<a href="http://secret.yostivanich.com/"><h1 id="title">Secret Santa</h1></a>
 			<p>by <a href="http://www.yostivanich.com" title="Justin Yost">Justin Yost</a></p>
 		</div>
 		<noscript><div class="span-24 notice"><p>This App Really Requires JavaScript To Work!!</p></div></noscript>
@@ -37,10 +39,10 @@
 					<fieldset>
 						<legend>Add Each Person and Their Email</legend>
 						<div class="span-7 colborder" id="formName">
-							<p><label for="name_1">Name:</label><br/><input type="text" maxlength="255" value="" name="name_1" class="formNames"></input></p>
+							<p><label for="name_1">Name:</label><br/><input type="text" maxlength="255" value="" name="name_1" class="formNames" tabindex="1"></input></p>
 						</div>
 						<div class="span-8 colborder" id="formEmail">
-							<p><label for="email_1">Email:</label><br/><input type="text" maxlength="255" value="" name="email_1"  class="formEmails"></input></p>
+							<p><label for="email_1">Email:</label><br/><input type="email" maxlength="255" value="" name="email_1"  class="formEmails" tabindex="2"></input></p>
 						</div>
 						<div class="span-7 last">
 							<p><label for="email_1">Gift Value:</label><br/>
@@ -85,7 +87,7 @@
 		<script type="text/javascript" src="./includes/js/secret_santa.js" charset="utf-8"></script>
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-3548350-5']);
+			_gaq.push(['_setAccount', '<?php echo GOOGLE_ANALYTICS_ID; ?>']);
 			_gaq.push(['_trackPageview']);
 			(function() {
     			var ga = document.createElement('script');
