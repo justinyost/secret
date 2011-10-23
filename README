@@ -1,4 +1,15 @@
 Secret Santa Basic WebApp
 
-To Install
-1. Edit and Rename ./config.sample.php as config.php
+Installation
+	Manual
+		Download this: https://github.com/jtyost2/secret/zipball/master
+		Unzip that download.
+		Copy the resulting folder to your Installation Directory
+		Rename config.sample.php to config.php and update with your settings
+
+	Git Clone
+		git clone git://github.com/jtyost2/secret.git secret
+		Rename config.sample.php to config.php and update with your settings
+		
+Usage
+	Performs logic and emailing of a very simple Secret Santa type drawing
