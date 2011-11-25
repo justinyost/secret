@@ -62,7 +62,7 @@
 						</div>
 						<div class="span-24">
 							<p><input type="button" id="addAnotherPerson" value="Add Another Person"></input></p>
-							<p><input type="submit" id="submit" value="Shuffle and Send Emails"></input></p>
+							<p><input type="submit" id="submit" value="Shuffle Names and Send Emails"></input></p>
 						</div>
 						<input type="hidden" value="<?php echo $rand_key; ?>" name="rand_key" id="rand_key"/>
 						<input type="hidden" value="<?php echo $form_key; ?>" name="form_key" id="form_key"/>
