@@ -7,13 +7,17 @@ function addAnotherPerson(){
 	formDiv.find("#number_ppl").val(number_ppl);
 	
 	var addedString = null;
-	addedString = "<p><label for='name_" + number_ppl + "'>Name:</label><br/><input type='text' maxlength='255' value='' name='name_" + number_ppl + "' class='formNames' tabIndex='" + (number_ppl * 2) +"'></input></p>";
+	addedString = "<p><label for='name_" + number_ppl + "'>Name:</label><br/><input type='text' maxlength='255' value='' name='name_" + number_ppl + "' class='formNames span-5' tabIndex='" + (number_ppl * 2) +"'></input></p>";
 	formDiv.find("#formName").append(addedString);
 	
 	addedString = null;
 	
-	addedString = "<p><label for='email_" + number_ppl + "'>Email:</label><br/><input type='email' maxlength='255' value='' name='email_" + number_ppl + "'  class='formEmails' tabIndex='" + ((number_ppl * 2) + 1) +"'></input></p>";
+	addedString = "<p><label for='email_" + number_ppl + "'>Email:</label><br/><input type='email' maxlength='255' value='' name='email_" + number_ppl + "'  class='formEmails span-5' tabIndex='" + (number_ppl * 2) +"'></input></p>";
 	formDiv.find("#formEmail").append(addedString);
+	
+	addedString = null;
+	addedString = "<p><label for='other_" + number_ppl + "'>Other Information:</label><br/><textarea value='' name='other_" + number_ppl + "'  class='formOther' rows='3' cols='30' tabIndex='" + ((number_ppl * 2) + 1) +"'></textarea></p>";
+	formDiv.find("#formOther").append(addedString);
 }
 
 function submitSendEmails(){
@@ -30,12 +34,16 @@ function submitSendEmails(){
 	var emails=new Array();
 	formDiv.find(".formEmails").each(function(i) { emails[i] = $(this).val(); });
 	
+	var others=new Array();
+	formDiv.find(".formOther").each(function(i) { others[i] = $(this).val(); });
+	
 	$.post(formDiv.find("#script").val(), {
 			rand_key: formDiv.find("#rand_key").val(),
 			form_key: formDiv.find("#form_key").val(),
 			number_ppl: formDiv.find("#number_ppl").val(),
 			'names[]': names,
 			'emails[]': emails,
+			'others[]': others,
 			gift_value: formDiv.find("#gift_value").val(),
 		},
 		function(data){

@@ -5,12 +5,13 @@ $input = array();
 $errors = array();
 $success = array();
 
-$input['number_ppl'] = ($_GET['number_ppl']) ? $_GET['number_ppl'] : $_POST['number_ppl'];
-$input['form_key'] = ($_GET['form_key']) ? $_GET['form_key'] : $_POST['form_key'];
-$input['rand_key'] = ($_GET['rand_key']) ? $_GET['rand_key'] : $_POST['rand_key'];
-$input['names'] = ($_GET['names']) ? $_GET['names'] : $_POST['names'];
-$input['emails'] = ($_GET['emails']) ? $_GET['emails'] : $_POST['emails'];
-$input['gift_value'] = ($_GET['gift_value']) ? $_GET['gift_value'] : $_POST['gift_value'];
+$input['number_ppl'] = ($_POST['number_ppl']) ? $_POST['number_ppl'] : $_GET['number_ppl'];
+$input['form_key'] = ($_POST['form_key']) ? $_POST['form_key'] : $_GET['form_key'];
+$input['rand_key'] = ($_POST['rand_key']) ? $_POST['rand_key'] : $_GET['rand_key'];
+$input['names'] = ($_POST['names']) ? $_POST['names'] : $_GET['names'];
+$input['emails'] = ($_POST['emails']) ? $_POST['emails'] : $_GET['emails'];
+$input['others'] = ($_POST['others']) ? $_POST['others'] : $_GET['others'];
+$input['gift_value'] = ($_POST['gift_value']) ? $_POST['gift_value'] : $_GET['gift_value'];
 
 try{
 	if(validate_input($input, $errors) && validate_form($input, $errors) && eliminate_blank_values($input) && validate_emails($input, $errors) && (count($input['names']) >= 1)){
@@ -106,10 +107,12 @@ function send_emails(&$input, &$errors, &$success){
 		$shuffledArray[] = array(
 			'email' => $input['emails'][$key],
 			'name' => $input['names'][$key],
+			'other' => $input['others'][$key],
 		);
 		$nonShuffledArray[] = array(
 			'email' => $input['emails'][$key],
 			'name' => $input['names'][$key],
+			'other' => $input['others'][$key],
 		);
 	}
 	
@@ -137,7 +140,11 @@ function send_emails(&$input, &$errors, &$success){
   			
 			$mail->Subject = "Secret Santa Assigned To You: ".$data['name'];
 			
-			$messageHtml = "<p>Hi ".$nonShuffledArray[$key]['name'].",</p><p>You are assigned to purchase a ".$input['gift_value']." dollar or less gift for ".$data['name'].". Their email address is: ".$data['email']."</p><p>Have a safe and fun holiday season!</p><p>This Message brought to you via Secret Santa App at <a href='".CANONICAL_URL."' title='".CANONICAL_URL."'>".CANONICAL_URL."</a><p>";
+			$messageHtml = "<p>Hi ".$nonShuffledArray[$key]['name'].",</p><p>You are assigned to purchase a ".$input['gift_value']." dollar or less gift for ".$data['name'].". Their email address is: ".$data['email']."</p>";
+			if(!empty($data['other'])):
+				$messageHtml .= "<p>Some other information: ".$data['other']."</p>";
+			endif;
+			$messageHtml .= "<p>Have a safe and fun holiday season!</p><p>This Message brought to you via Secret Santa App at <a href='".CANONICAL_URL."' title='".CANONICAL_URL."'>".CANONICAL_URL."</a><p>";
 			$mail->MsgHTML($messageHtml);
 			$mail->Send();
 			$success[] = $data['name']." has been assigned to a random person.";
@@ -192,30 +199,6 @@ function validate_emails(&$input, &$errors){
 }
 
 function check_email_address(&$email) {
-    // First, we check that there's one @ symbol, and that the lengths are right
-    if (!ereg("^[^@]{1,64}@[^@]{1,255}$", $email)) {
-        // Email invalid because wrong number of characters in one section, or wrong number of @ symbols.
-        return false;
-    }
-    // Split it into sections to make life easier
-    $email_array = explode("@", $email);
-    $local_array = explode(".", $email_array[0]);
-    for ($i = 0; $i < sizeof($local_array); $i++) {
-         if (!ereg("^(([A-Za-z0-9!#$%&amp;'*+/=?^_`{|}~-][A-Za-z0-9!#$%&amp;'*+/=?^_`{|}~\.-]{0,63})|(\"[^(\\|\")]{0,62}\"))$", $local_array[$i])) {
-            return false;
-        }
-    }    
-    if (!ereg("^\[?[0-9\.]+\]?$", $email_array[1])) { // Check if domain is IP. If not, it should be valid domain name
-        $domain_array = explode(".", $email_array[1]);
-        if (sizeof($domain_array) < 2) {
-                return false; // Not enough parts to domain
-        }
-        for ($i = 0; $i < sizeof($domain_array); $i++) {
-            if (!ereg("^(([A-Za-z0-9][A-Za-z0-9-]{0,61}[A-Za-z0-9])|([A-Za-z0-9]+))$", $domain_array[$i])) {
-                return false;
-            }
-        }
-    }
-    return true;
+	return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 ?>

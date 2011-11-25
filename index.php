@@ -38,13 +38,16 @@
 				<form action="sendEmails.php" name="sendEmails" method="get">
 					<fieldset>
 						<legend>Add Each Person and Their Email</legend>
-						<div class="span-7 colborder" id="formName">
-							<p><label for="name_1">Name:</label><br/><input type="text" maxlength="255" value="" name="name_1" class="formNames" tabindex="1"></input></p>
+						<div class="span-6 colborder" id="formName">
+							<p><label for="name_1">Name:</label><br/><input type="text" maxlength="255" value="" name="name_1" class="formNames span-5" tabindex="1"></input></p>
 						</div>
-						<div class="span-8 colborder" id="formEmail">
-							<p><label for="email_1">Email:</label><br/><input type="email" maxlength="255" value="" name="email_1"  class="formEmails" tabindex="2"></input></p>
+						<div class="span-6 colborder" id="formEmail">
+							<p><label for="email_1">Email:</label><br/><input type="email" maxlength="255" value="" name="email_1"  class="formEmails span-5" tabindex="2"></input></p>
 						</div>
-						<div class="span-7 last">
+						<div class="span-6 colborder" id="formOther">
+							<p><label for="other_1">Other Information:</label><br/><textarea value="" name="other_1"  class="formOther" tabindex="3" rows="3" cols="30"></textarea></p>
+						</div>
+						<div class="span-3 last">
 							<p><label for="email_1">Gift Value:</label><br/>
 							<select id="gift_value" name="gift_value">
 								<option value="5">$5.00</option>
