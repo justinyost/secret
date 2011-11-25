@@ -30,7 +30,7 @@ function submitSendEmails(){
 	var emails=new Array();
 	formDiv.find(".formEmails").each(function(i) { emails[i] = $(this).val(); });
 	
-	$.get(formDiv.find("#script").val(), {
+	$.post(formDiv.find("#script").val(), {
 			rand_key: formDiv.find("#rand_key").val(),
 			form_key: formDiv.find("#form_key").val(),
 			number_ppl: formDiv.find("#number_ppl").val(),

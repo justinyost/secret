@@ -1,5 +1,4 @@
 <?php
-
 require_once("./config.php");
 
 $input = array();
@@ -74,6 +73,22 @@ function validate_form(&$input, &$errors){
 	return true;
 }
 
+function array_shuffle($array){
+	// shuffle using Fisher-Yates
+	$i = count($array);
+	
+	while(--$i){
+		$j = mt_rand(0,$i);
+		if($i != $j){
+			// swap items
+			$tmp = $array[$j];
+			$array[$j] = $array[$i];
+			$array[$i] = $tmp;
+		}
+	} 
+	return $array;
+}
+
 function return_success(&$success){
 	?> <div class="success"><ul> <?php
 		foreach($success as $sucs){ echo "<li>".$sucs."</li>"; }
@@ -84,13 +99,26 @@ function send_emails(&$input, &$errors, &$success){
 	require_once('./includes/phpmailer/class.phpmailer.php');
 
 	$return_val = true;
-
-	shuffle($input['names']);
-	shuffle($input['emails']);
-	$integer = 0;
+	
+	$shuffledArray = array();
+	$nonShuffledArray = array();
+	foreach($input['emails'] as $key => $email){
+		$shuffledArray[] = array(
+			'email' => $input['emails'][$key],
+			'name' => $input['names'][$key],
+		);
+		$nonShuffledArray[] = array(
+			'email' => $input['emails'][$key],
+			'name' => $input['names'][$key],
+		);
+	}
+	
+	for($i = 0; $i <= 10; $i++){
+		$shuffledArray = array_shuffle($shuffledArray);
+	}
 	
 	try{
-		foreach($input['names'] as $name){
+		foreach($shuffledArray as $key => $data):
 			$mail = new PHPMailer(true);
 			$mail->IsSMTP();
 			$mail->Host       = MAIL_SERVER;
@@ -102,15 +130,18 @@ function send_emails(&$input, &$errors, &$success){
   			$mail->Password   = MAIL_PASSWORD;
   			$mail->AddReplyTo(MAIL_USERNAME, MAIL_NAME);
   			$mail->SetFrom(MAIL_USERNAME, MAIL_NAME);
+  			
   			$mail->AltBody = 'To view the message, please use an HTML compatible email viewer!';
-  			$mail->AddAddress($input['emails'][$integer], $input['emails'][$integer]);
-			$mail->Subject = "Secret Santa Assigned To You: ".$name;
-			$messageHtml = "You are assigned to purchase a ".$input['gift_value']." dollar or less gift for ".$name.". Have a safe and fun holiday season!"." This Message brought to you via Secret Santa App at http://github.com/jtyost2/secret"
+  			
+  			$mail->AddAddress($nonShuffledArray[$key]['email'], $nonShuffledArray[$key]['name']);
+  			
+			$mail->Subject = "Secret Santa Assigned To You: ".$data['name'];
+			
+			$messageHtml = "<p>Hi ".$nonShuffledArray[$key]['name'].",</p><p>You are assigned to purchase a ".$input['gift_value']." dollar or less gift for ".$data['name'].". Their email address is: ".$data['email']."</p><p>Have a safe and fun holiday season!</p><p>This Message brought to you via Secret Santa App at <a href='".CANONICAL_URL."' title='".CANONICAL_URL."'>".CANONICAL_URL."</a><p>";
 			$mail->MsgHTML($messageHtml);
 			$mail->Send();
-			$success[] = $name." has been assigned to a random person.";
-			$integer++;
-		}
+			$success[] = $data['name']." has been assigned to a random person.";
+		endforeach;
 	} catch (Exception $e) { return_errors($errors, $input, $e); return false; }
 	return true;
 }
@@ -187,5 +218,4 @@ function check_email_address(&$email) {
     }
     return true;
 }
-
 ?>
