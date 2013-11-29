@@ -9,7 +9,7 @@
 		<link href="./includes/css/custom.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
 		<link href="./includes/css/print.css" rel="stylesheet" type="text/css" media="print" charset="utf-8" />
 		<!--[if IE]><link href="./includes/css/ie.css" rel="stylesheet" type="text/css" media="print" charset="utf-8" /><![endif]-->
-	
+
 		<!--JS-->
 		<script type="text/javascript" src="./includes/js/email.js" charset="utf-8"></script>
 
@@ -17,14 +17,14 @@
 		<meta http-equiv="X-UA-Compatible" content="chrome=1"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=8" />
 		<meta http-equiv="description" content="A simple and open source web app to do a random secret santa drawing."/>
-    	
+
     	<?php require_once("./config.php"); ?>
-    	
+
     	<link rel="canonical" href="<?php echo CANONICAL_URL; ?>" />
-    	<?php $rand_key = mktime(); mt_srand($rand_key); $form_key = mt_rand(); ?>
+    	<?php $rand_key = time(); mt_srand($rand_key); $form_key = mt_rand(); ?>
 	</head>
 	<body class="container">
-	
+
 		<div class="header span-24">
 			<a href="http://secret.yostivanich.com/"><h1 id="title">Secret Santa</h1></a>
 			<p>by <a href="http://www.yostivanich.com" title="Justin Yost">Justin Yost</a></p>
@@ -84,7 +84,7 @@
 				<div class="span-7 last"><p>Contact Me: <script type="text/javascript">emailMe();</script></p></div>
 			</p>
 		</div>
-		
+
 		<!--JS-->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 		<script type="text/javascript" src="./includes/js/secret_santa.js" charset="utf-8"></script>
