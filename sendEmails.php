@@ -25,43 +25,43 @@ try{
 
 function validate_input(&$input, &$errors){
 	$return_val = true;
-	
+
 	//Testing Form Key
 	if(!isset($input['form_key']) || empty($input['form_key']) || !is_numeric($input['form_key'])){
 		$errors['form'] = "Form is not valid";
 		$return_val = false;
 	}
-	
+
 	//Testing Random Key
 	if(!isset($input['rand_key']) || empty($input['rand_key']) || !is_numeric($input['rand_key'])){
 		$errors['form'] = "Form is not valid";
 		$return_val = false;
 	}
-	
+
 	//Testing Number of People
 	if(!isset($input['number_ppl']) || empty($input['number_ppl']) || !is_numeric($input['number_ppl'])){
 		$errors['form'] = "Form is not valid";
 		$return_val = false;
 	}
-	
+
 	//Testing Names
 	if(!isset($input['names']) || empty($input['names']) || !is_array($input['names']) ){
 		$errors['names'] = "One of the names is empty";
 		$return_val = false;
 	}
-	
+
 	//Testing Random Key
 	if(!isset($input['gift_value']) || empty($input['gift_value']) || !is_numeric($input['gift_value'])){
 		$errors['gift_value'] = "Gift Value is not valid";
 		$return_val = false;
 	}
-	
+
 	//Testing Emails
 	if(!isset($input['emails']) || empty($input['emails']) || !is_array($input['emails']) ){
 		$errors['names'] = "One of the emails is empty";
 		$return_val = false;
 	}
-	
+
 	return $return_val;
 }
 
@@ -77,7 +77,7 @@ function validate_form(&$input, &$errors){
 function array_shuffle($array){
 	// shuffle using Fisher-Yates
 	$i = count($array);
-	
+
 	while(--$i){
 		$j = mt_rand(0,$i);
 		if($i != $j){
@@ -86,7 +86,7 @@ function array_shuffle($array){
 			$array[$j] = $array[$i];
 			$array[$i] = $tmp;
 		}
-	} 
+	}
 	return $array;
 }
 
@@ -100,7 +100,7 @@ function send_emails(&$input, &$errors, &$success){
 	require_once('./includes/phpmailer/class.phpmailer.php');
 
 	$return_val = true;
-	
+
 	$shuffledArray = array();
 	$nonShuffledArray = array();
 	foreach($input['emails'] as $key => $email){
@@ -115,11 +115,11 @@ function send_emails(&$input, &$errors, &$success){
 			'other' => $input['others'][$key],
 		);
 	}
-	
+
 	for($i = 0; $i <= 10; $i++){
 		$shuffledArray = array_shuffle($shuffledArray);
 	}
-	
+
 	try{
 		foreach($shuffledArray as $key => $data):
 			$mail = new PHPMailer(true);
@@ -131,15 +131,15 @@ function send_emails(&$input, &$errors, &$success){
   			$mail->Port       = SMTP_PORT;
   			$mail->Username   = MAIL_USERNAME;
   			$mail->Password   = MAIL_PASSWORD;
-  			$mail->AddReplyTo(MAIL_USERNAME, MAIL_NAME);
-  			$mail->SetFrom(MAIL_USERNAME, MAIL_NAME);
-  			
+  			$mail->AddReplyTo(FROM_EMAIL, FROM_NAME);
+  			$mail->SetFrom(FROM_EMAIL, FROM_NAME);
+
   			$mail->AltBody = 'To view the message, please use an HTML compatible email viewer!';
-  			
+
   			$mail->AddAddress($nonShuffledArray[$key]['email'], $nonShuffledArray[$key]['name']);
-  			
+
 			$mail->Subject = "Secret Santa Assigned To You: ".$data['name'];
-			
+
 			$messageHtml = "<p>Hi ".$nonShuffledArray[$key]['name'].",</p><p>You are assigned to purchase a ".$input['gift_value']." dollar or less gift for ".$data['name'].". Their email address is: ".$data['email']."</p>";
 			if(!empty($data['other'])):
 				$messageHtml .= "<p>Some other information: ".$data['other']."</p>";
