@@ -79,7 +79,7 @@
 		</div>
 		<div class="footer" class="span-24">
 			<p>
-				<div class="span-7 colborder"><p>&copy; 2009 Justin Yost <a rel="license" href="http://www.opensource.org/licenses/mit-license.php">MIT Lincensed</a></p></div>
+				<div class="span-7 colborder"><p>&copy; <?php echo date('Y'); ?> Justin Yost <a rel="license" href="http://www.opensource.org/licenses/mit-license.php">MIT Lincensed</a></p></div>
 				<div class="span-8 colborder"><p>Privacy: Names and emails aren't stored in any way.</p></div>
 				<div class="span-7 last"><p>Contact Me: <script type="text/javascript">emailMe();</script></p></div>
 			</p>
