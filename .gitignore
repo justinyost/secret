@@ -1,17 +1,14 @@
-#MacOSX GitIgnores
 .DS_Store?
 Icon?
-# Thumbnails
 ._*
-# Files that might appear on external disk
 .Spotlight-V100
 .Trashes
-
-#Windows GitIgnores
-# Windows image file caches
 Thumbs.db
-# Folder config file
 Desktop.ini
-
-#Ignore Local Config File
 /config.php
+Lib/puphpet/files/dot/ssh/id_rsa
+Lib/puphpet/files/dot/ssh/id_rsa.ppk
+Lib/puphpet/files/dot/ssh/id_rsa.pub
+Lib/puphpet/files/dot/ssh/root_id_rsa
+Lib/puphpet/files/dot/ssh/root_id_rsa.ppk
+Lib/puphpet/files/dot/ssh/root_id_rsa.pub
