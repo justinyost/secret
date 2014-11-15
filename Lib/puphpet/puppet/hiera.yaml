@@ -1,0 +1,9 @@
+---
+:backends: yaml
+:yaml:
+    :datadir: '/vagrant/Lib/puphpet'
+:hierarchy:
+    - "config-%{::environment}"
+    - config
+:logger: console
+:merge_behavior: native
