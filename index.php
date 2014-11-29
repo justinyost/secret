@@ -66,14 +66,14 @@
 
 				<div class="form-group">
 					<div>
-						<button type="submit" class="btn btn-default">
+						<button type="button" class="btn btn-info _add-person">
 							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add another person
 						</button>
 					</div>
 				</div>
 				<div class="form-group">
 					<div>
-						<button type="submit" class="btn btn-default">Randomize and Email Participants</button>
+						<button type="submit" class="btn btn-primary">Randomize and Email Participants</button>
 					</div>
 				</div>
 
@@ -81,9 +81,9 @@
 		</div>
 
 		<!-- javascript -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="./js/bootstrap.min.js"></script>
-		<script src="./js/secret_santa.js"></script>
+		<script src="./js/jquery.scripts.js"></script>
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', '<?php echo GOOGLE_ANALYTICS_ID; ?>']);
