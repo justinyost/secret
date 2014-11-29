@@ -38,7 +38,7 @@
 				<p>Add each person's name and email who is participating in the Secret Santa drawing. Select the suggested price and hit the send email button. Everyone will receive an email with who they have been randomly select to purchase a gift for.</p>
 			</div>
 
-			<form class="form-horizontal" role="form">
+			<form class="form-horizontal" role="form" data-number-of-people="1">
 
 				<div id="person1">
 					<div class="form-group">
@@ -61,12 +61,13 @@
 								<input type="text" class="form-control" id="wishlist1" placeholder="Enter wishlist or other details">
 							</div>
 					</div>
+					<hr/>
 				</div>
 
 
 				<div class="form-group">
 					<div>
-						<button type="button" class="btn btn-info _add-person">
+						<button type="button" class="btn btn-info _add_person">
 							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add another person
 						</button>
 					</div>
@@ -84,6 +85,7 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="./js/bootstrap.min.js"></script>
 		<script src="./js/jquery.scripts.js"></script>
+		<!---
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', '<?php echo GOOGLE_ANALYTICS_ID; ?>']);
@@ -95,5 +97,6 @@
     			document.documentElement.firstChild.appendChild(ga);
   			})();
 		</script>
+		--->
   </body>
 </html>
