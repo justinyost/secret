@@ -44,21 +44,21 @@
 					<div class="form-group">
 							<label for="name1" class="col-sm-2 control-label">Name</label>
 							<div class="col-sm-10">
-							<input type="text" class="form-control" id="name1" placeholder="Enter name">
+							<input type="text" class="form-control" id="name1" name="data[Person][1][name]" placeholder="Enter name">
 							</div>
 					</div>
 
 					<div class="form-group">
 							<label for="email1" class="col-sm-2 control-label">Email</label>
 							<div class="col-sm-10">
-								<input type="email" class="form-control" id="email1" placeholder="Enter email">
+								<input type="email" class="form-control" id="email1" name="data[Person][1][email]" placeholder="Enter email">
 							</div>
 					</div>
 
 					<div class="form-group">
 							<label for="wishlist1" class="col-sm-2 control-label">Wishlist</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="wishlist1" placeholder="Enter wishlist or other details">
+								<input type="text" class="form-control" id="wishlist1" name="data[Person][1][wishlist]" placeholder="Enter wishlist or other details">
 							</div>
 					</div>
 					<hr/>
