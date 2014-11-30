@@ -38,7 +38,7 @@
 				<p>Add each person's name and email who is participating in the Secret Santa drawing. Select the suggested price and hit the send email button. Everyone will receive an email with who they have been randomly select to purchase a gift for.</p>
 			</div>
 
-			<form class="form-horizontal" role="form" data-number-of-people="1">
+			<form class="form-horizontal" role="form" data-number-of-people="1" method="POST" action ="./form.php">
 
 				<div id="person1">
 					<div class="form-group">
