@@ -1,7 +1,12 @@
-Secret Santa Basic WebApp
+# Secret Santa #
 
-Installation
-	Manual
+[![Build Status](https://travis-ci.org/jtyost2/secret.svg?branch=master)](https://travis-ci.org/jtyost2/secret)
+
+Performs logic and emailing of a very simple Secret Santa type drawing
+
+## Installation ##
+
+Manual
 		Download this: https://github.com/jtyost2/secret/zipball/master
 		Unzip that download.
 		Copy the resulting folder to your Installation Directory
@@ -10,6 +15,28 @@ Installation
 	Git Clone
 		git clone git://github.com/jtyost2/secret.git secret
 		Rename config.sample.php to config.php and update with your settings
-		
-Usage
-	Performs logic and emailing of a very simple Secret Santa type drawing
+
+## Requirements ##
+
+
+## Contributing ##
+
+### Reporting Issues ###
+
+Please use [GitHub Isuses](https://github.com/jtyost2/secret/issues) for listing any known defects or issues
+
+### Development ###
+
+When developing this app, please fork and issue a PR for any new development.
+
+The Complete Test Suite for the app can be run via this command:
+
+`./vendor/bin/phpunit ./tests/test`
+
+## License
+
+[MIT](https://github.com/jtyost2/secret/blob/master/COPYRIGHT)
+
+## Copyright
+
+[Justin Yost](https://www.yostivanich.com/) 2014
