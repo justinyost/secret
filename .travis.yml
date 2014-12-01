@@ -1,0 +1,33 @@
+language: php
+
+php:
+  - 5.3
+  - 5.4
+  - 5.5
+  - 5.6
+
+env:
+
+# Branches to be built or not
+branches:
+  # Blacklist these branches
+  except:
+    - master
+    - gh-pages
+
+# Before Installing Software/Dependencies Needed
+before_install:
+
+# Install Software/Dependencies Needed
+install:
+  - git submodule update --init --recursive
+  - composer install --dev --no-interaction
+
+before_script:
+  - phpenv rehash
+
+script:
+  - ./vendor/bin/phpunit ./tests/test
+
+notifications:
+  email: false
