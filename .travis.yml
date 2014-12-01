@@ -12,7 +12,6 @@ env:
 branches:
   # Blacklist these branches
   except:
-    - master
     - gh-pages
 
 # Before Installing Software/Dependencies Needed
