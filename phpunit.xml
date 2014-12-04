@@ -11,5 +11,8 @@
 		<testsuite name="submit">
 			<file>./tests/SubmitFormTest.php</file>
 		</testsuite>
+		<testsuite name="validate">
+			<file>./tests/ValidateFormElementsTest.php</file>
+		</testsuite>
 	</testsuites>
 </phpunit>
