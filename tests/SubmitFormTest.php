@@ -3,14 +3,19 @@ require_once(getcwd() . '/form.php');
 
 class SubmitFormTest extends PHPUnit_Framework_TestCase {
 
+	/**
+	 * [setUp description]
+	 */
 	public function setUp() {
 		$this->SubmitForm = new SubmitForm();
 	}
 
 	/**
+	 * [testCallWithInvalidPostData description]
 	 *
 	 * @dataProvider providerCallWithInvalidPostData
-	 * @return [type] [description]
+	 * @param  [type] $input [description]
+	 * @return [type]        [description]
 	 */
 	public function testCallWithInvalidPostData($input) {
 		$this->assertFalse($this->SubmitForm->call($input));
