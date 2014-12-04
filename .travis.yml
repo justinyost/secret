@@ -26,7 +26,7 @@ before_script:
   - phpenv rehash
 
 script:
-  - ./vendor/bin/phpunit ./tests/test
+  - ./vendor/bin/phpunit --stderr
 
 notifications:
   email: false
