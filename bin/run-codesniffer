@@ -35,7 +35,7 @@ REPORT_DIR="${TMP_DIR}/code-sniffs"
 FULL_REPORT_FILE="${REPORT_DIR}/report-full.txt"
 SUMMARY_REPORT_FILE="${REPORT_DIR}/report-summary.txt"
 
-CODE_STANDARD="Vendor/loadsys/loadsys_codesniffer/Loadsys"
+CODE_STANDARD="vendor/loadsys/loadsys_codesniffer/Loadsys"
 SNIFF_FOLDERS=("${DIR}/tests" "${DIR}/includes")
 SNIFF_FAIL_CAUSES_SCRIPT_FAIL=1 # 1 = false. This script will therefore always exit 0.
 
