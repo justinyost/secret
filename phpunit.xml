@@ -14,5 +14,8 @@
 		<testsuite name="validate">
 			<file>./tests/ValidateFormElementsTest.php</file>
 		</testsuite>
+		<testsuite name="validate">
+			<file>./tests/RandomizePeopleTest.php</file>
+		</testsuite>
 	</testsuites>
 </phpunit>
