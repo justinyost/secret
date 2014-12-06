@@ -14,7 +14,7 @@ class SubmitForm {
 	 * the emails
 	 *
 	 * @param  array  $postData array of post data from the form
-	 * @return boolean
+	 * @return bool
 	 */
 	public function call(array $postData = array()) {
 		if (
