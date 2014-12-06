@@ -1,5 +1,6 @@
 <?php
 require_once( dirname(__FILE__) . "/ValidateFormElements.php");
+require_once( dirname(__FILE__) . "/RandomizePeople.php");
 
 /**
  * SubmitForm
@@ -23,17 +24,20 @@ class SubmitForm {
 			return false;
 		}
 
-		$people = ($postData['data']) ? $postData['data'] : null;
+		$data = ($postData['data']) ? $postData['data'] : null;
 
 		if (
-			!is_array($people)
-			|| !array_key_exists('Person', $people)
+			!is_array($data)
+			|| !array_key_exists('Person', $data)
 		) {
 			return false;
 		}
 
+		$people['Person'] = $data['Person'];
+
 		// Person should contain: name/email/wishlist
 		foreach($people['Person'] as &$person) {
+			// sanitize the inputs
 			$person['name'] = filter_var($person['name'], FILTER_SANITIZE_STRING);
 			$person['email'] = filter_var($person['email'], FILTER_SANITIZE_EMAIL);
 			$person['wishlist'] = filter_var($person['wishlist'], FILTER_SANITIZE_STRING);

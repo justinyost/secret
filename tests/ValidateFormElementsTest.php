@@ -11,6 +11,7 @@ class ValidateFormElementsTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * test the validateName method
 	 *
 	 * @dataProvider providerValidateName
 	 * @param  [type] $expectedOut [description]
@@ -43,6 +44,7 @@ class ValidateFormElementsTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * test the validateEmail method
 	 *
 	 * @dataProvider providerValidateEmail
 	 * @param  [type] $expectedOut [description]
@@ -83,6 +85,7 @@ class ValidateFormElementsTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * test the validateWishlist method
 	 *
 	 * @dataProvider providerValidateWishlist
 	 * @param  [type] $expectedOut [description]
