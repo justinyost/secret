@@ -1,4 +1,10 @@
 <?php
+/**
+ * RandomizePeople
+ *
+ * Randomize an array of people, ensuring no one element in the shuffled array
+ * is paired with the same element in the unshuffled array
+ */
 class RandomizePeople {
 
 	/**

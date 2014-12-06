@@ -1,5 +1,5 @@
 <?php
-require_once( dirname(dirname(__FILE__)) . "/includes/RandomizePeople.php");
+require_once ( dirname(dirname(__FILE__)) . "/includes/RandomizePeople.php");
 
 class RandomizePeopleTest extends PHPUnit_Framework_TestCase {
 
