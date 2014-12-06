@@ -1,5 +1,5 @@
 <?php
-require_once( dirname(dirname(__FILE__)) . "/includes/SubmitForm.php");
+require_once ( dirname(dirname(__FILE__)) . "/includes/SubmitForm.php");
 
 class SubmitFormTest extends PHPUnit_Framework_TestCase {
 

@@ -18,13 +18,13 @@
     "source": "https://github.com/jtyost2/secret"
   },
   "require": {
-    "php": ">=5.2",
+    "php": ">=5.3",
     "phpmailer/phpmailer": "~5.2"
   },
   "require-dev": {
     "phpunit/phpunit": "4.3.*",
     "phpdocumentor/phpdocumentor": "2.*@beta",
-    "squizlabs/php_codesniffer": "1.*",
+    "loadsys/loadsys_codesniffer": "1.*",
     "johnkary/phpunit-speedtrap": "~1.0@dev"
   }
 }

@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+#---------------------------------------------------------------------
+usage ()
+{
+	cat <<EOT
+
+${0##*/}
+    Executes the provided arguments inside the current vagrant VM,
+    if present. Otherwise just executes the arguments. The entire
+    command string MUST be quoted. All paths used must be relative
+    to the root project folder shared between the host and VM.
+
+Usage:
+    bin/${0##*/} "Command [--with args]"
+
+EOT
+
+	exit 0
+}
+if [ "$1" = '-h' ]; then
+	usage
+fi
+
+VAGRANT_EXEC=$( which vagrant )
+VAGRANT_PRESENT=$?
+if [ $VAGRANT_PRESENT -eq 0 ] && ! mount | grep -q '^/vagrant'; then
+	echo '## Running command in vagrant.'
+	vagrant ssh -c "cd /vagrant; $@"
+else
+	echo '## Running command natively.'
+	eval "$@"
+fi
+
+# It is important that the last command is either the `vagrant ssh`
+# or the `eval ...` so that the exit code of **this** script
+# is the exit code from those calls.
+
+
+# Logic matrix:
+# vagrant installed + outside vm (no /vagrant mount point) = run in vagrant
+# vagrant installed + inside vm = run native
+# no vagrant + outside vm = run native
+# no vagrant + inside vm = run native

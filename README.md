@@ -38,7 +38,11 @@ When developing this app, please fork and issue a PR for any new development.
 
 The Complete Test Suite for the app can be run via this command:
 
-`./vendor/bin/phpunit`
+`./bin/run-tests`
+
+The Code Sniffer as well can be run via this command:
+
+`./bin/run-codesniffer y`
 
 ## License
 

@@ -6,6 +6,12 @@
  */
 class ValidateFormElements {
 
+	/**
+	 * validate a name value, ensures is a string and not null
+	 *
+	 * @param  string $name a name to validate
+	 * @return bool
+	 */
 	public function validateName($name = null) {
 		$name = filter_var($name, FILTER_SANITIZE_STRING);
 
@@ -19,6 +25,13 @@ class ValidateFormElements {
 		return false;
 	}
 
+	/**
+	 * validate a email value, ensures is a string and not null and passes as a
+	 * valid email
+	 *
+	 * @param  string $email a email to validate
+	 * @return bool
+	 */
 	public function validateEmail($email = null) {
 		$email = filter_var($email, FILTER_SANITIZE_EMAIL);
 
@@ -33,12 +46,22 @@ class ValidateFormElements {
 		return false;
 	}
 
+	/**
+	 * validate a wishlist value, merely returns true
+	 *
+	 * @param  string $wishlist a wishlist to validate
+	 * @return bool
+	 */
 	public function validateWishlist($wishlist = null) {
-		$wishlist = filter_var($wishlist, FILTER_SANITIZE_STRING);
-
 		return true;
 	}
 
+	/**
+	 * validate a string value as not null or empty
+	 *
+	 * @param  string $string a string to validate
+	 * @return bool
+	 */
 	protected function validateStringNotNull($string) {
 		if (is_null($string)) {
 			return false;
