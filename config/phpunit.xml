@@ -11,8 +11,11 @@
 	 <filter>
 		<blacklist>
 			<!-- Exclude test directory itself and composer-installed deps. -->
+			<directory>../bin</directory>
+			<directory>../config</directory>
 			<directory>../css</directory>
 			<directory>../fonts</directory>
+			<directory>../img</directory>
 			<directory>../js</directory>
 			<directory>../Lib</directory>
 			<directory>../tmp</directory>
