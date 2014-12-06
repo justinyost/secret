@@ -134,6 +134,61 @@ class RandomizePeopleTest extends PHPUnit_Framework_TestCase {
 					),
 				),
 			),
+
+			'Ten People' => array(
+				array(
+					array(
+						'name' => 'test1',
+						'email' => 'test@test.com',
+						'wishlist' => '',
+					),
+					array(
+						'name' => 'test2',
+						'email' => 'test2@test.com',
+						'wishlist' => '',
+					),
+					array(
+						'name' => 'test3',
+						'email' => 'test3@test.com',
+						'wishlist' => '',
+					),
+					array(
+						'name' => 'test4',
+						'email' => 'test4@test.com',
+						'wishlist' => '',
+					),
+					array(
+						'name' => 'test5',
+						'email' => 'test5@test.com',
+						'wishlist' => '',
+					),
+					array(
+						'name' => 'test6',
+						'email' => 'test6@test.com',
+						'wishlist' => '',
+					),
+					array(
+						'name' => 'test7',
+						'email' => 'test7@test.com',
+						'wishlist' => '',
+					),
+					array(
+						'name' => 'test8',
+						'email' => 'test8@test.com',
+						'wishlist' => '',
+					),
+					array(
+						'name' => 'test9',
+						'email' => 'test9@test.com',
+						'wishlist' => '',
+					),
+					array(
+						'name' => 'test10',
+						'email' => 'test10@test.com',
+						'wishlist' => '',
+					),
+				),
+			),
 		);
 	}
 
