@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="true"
+	 colors="true"
+	 convertErrorsToExceptions="true"
+	 convertNoticesToExceptions="true"
+	 convertWarningsToExceptions="true"
+	 mapTestClassNameToCoveredClassName="false"
+	 strict="false"
+	 verbose="false">
+
+	 <filter>
+		<blacklist>
+			<!-- Exclude test directory itself and composer-installed deps. -->
+			<directory>../css</directory>
+			<directory>../fonts</directory>
+			<directory>../js</directory>
+			<directory>../Lib</directory>
+			<directory>../tmp</directory>
+			<directory>../vendor</directory>
+		</blacklist>
+	</filter>
+	<testsuites>
+		<testsuite name="submit">
+			<file>../tests/SubmitFormTest.php</file>
+		</testsuite>
+		<testsuite name="validate">
+			<file>../tests/ValidateFormElementsTest.php</file>
+		</testsuite>
+		<testsuite name="validate">
+			<file>../tests/RandomizePeopleTest.php</file>
+		</testsuite>
+	</testsuites>
+
+	<logging>
+		<!-- HTML reports exported to loadsysdev for viewing. -->
+		<log
+			type="coverage-html"
+			target="../tmp/coverage/html/"
+			charset="UTF-8"
+			highlight="true"
+			lowUpperBound="60"
+			highLowerBound="90"
+		/>
+		<!-- Text report used by travis helpers to generate the proper coverage badge. -->
+		<log
+			type="coverage-text"
+			target="../tmp/coverage/report.txt"
+			lowUpperBound="60"
+			highLowerBound="90"
+		/>
+		<!-- Not currently used. -->
+		<!-- <log
+			type="coverage-clover"
+			target="../tmp/coverage/clover.xml"
+		/> -->
+	</logging>
+</phpunit>
