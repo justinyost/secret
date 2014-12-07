@@ -4,7 +4,9 @@ require_once( dirname(dirname(__FILE__)) . "/includes/ValidateFormElements.php")
 class ValidateFormElementsTest extends PHPUnit_Framework_TestCase {
 
 	/**
-	 * [setUp description]
+	 * setup the tests
+	 *
+	 * @return void
 	 */
 	public function setUp() {
 		$this->ValidateFormElements = new ValidateFormElements();
@@ -14,9 +16,9 @@ class ValidateFormElementsTest extends PHPUnit_Framework_TestCase {
 	 * test the validateName method
 	 *
 	 * @dataProvider providerValidateName
-	 * @param  [type] $expectedOut [description]
-	 * @param  [type] $input       [description]
-	 * @return [type]              [description]
+	 * @param  string $expectedOut [description]
+	 * @param  bool $input       [description]
+	 * @return void
 	 */
 	public function testValidateName($expectedOut, $input) {
 		$this->assertSame($expectedOut, $this->ValidateFormElements->validateName($input));
@@ -47,9 +49,9 @@ class ValidateFormElementsTest extends PHPUnit_Framework_TestCase {
 	 * test the validateEmail method
 	 *
 	 * @dataProvider providerValidateEmail
-	 * @param  [type] $expectedOut [description]
-	 * @param  [type] $input       [description]
-	 * @return [type]              [description]
+	 * @param  string $expectedOut [description]
+	 * @param  bool $input       [description]
+	 * @return void
 	 */
 	public function testValidateEmail($expectedOut, $input) {
 		$this->assertSame($expectedOut, $this->ValidateFormElements->validateEmail($input));
