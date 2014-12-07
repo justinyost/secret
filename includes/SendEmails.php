@@ -1,6 +1,6 @@
 <?php
 require_once ( dirname(dirname(__FILE__)) . '/vendor/phpmailer/phpmailer/PHPMailerAutoload.php');
-require_once ( dirname(dirname(__FILE__)) . '/config/config.php');
+include_once ( dirname(dirname(__FILE__)) . '/config/config.php');
 
 /**
  * SendEmails
@@ -21,10 +21,10 @@ class SendEmails {
 		foreach ($shuffledPeople as $key => $person) {
 			try {
 				$this->sendEmail($person, $key, $unshuffledPeople, $giftValue);
-				$success[] = $person['name'] . " has been assigned to a random person.";
 			} catch (Exception $e) {
 				return false;
 			}
+			$success[] = $person['name'] . " has been assigned to a random person.";
 		}
 
 		return $success;

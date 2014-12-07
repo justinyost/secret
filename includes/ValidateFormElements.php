@@ -13,8 +13,6 @@ class ValidateFormElements {
 	 * @return bool
 	 */
 	public function validateName($name = null) {
-		$name = filter_var($name, FILTER_SANITIZE_STRING);
-
 		if (!$this->validateStringNotNull($name)) {
 			return false;
 		}
@@ -33,8 +31,6 @@ class ValidateFormElements {
 	 * @return bool
 	 */
 	public function validateEmail($email = null) {
-		$email = filter_var($email, FILTER_SANITIZE_EMAIL);
-
 		if (!$this->validateStringNotNull($email)) {
 			return false;
 		}

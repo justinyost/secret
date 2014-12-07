@@ -34,10 +34,6 @@ class ValidateFormElementsTest extends PHPUnit_Framework_TestCase {
 				false,
 				"",
 			),
-			'Non Safe String' => array(
-				false,
-				"<>",
-			),
 			'Non Empty String' => array(
 				true,
 				"asdfasdf",
