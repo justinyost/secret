@@ -8,7 +8,7 @@ Thumbs.db
 Desktop.ini
 
 # Configuration
-/config.php
+/config/config.php
 
 # puphpet
 Lib/puphpet/files/dot/ssh/id_rsa
