@@ -38,27 +38,27 @@
 				<p>Add each person's name and email who is participating in the Secret Santa drawing. Select the suggested price and hit the send email button. Everyone will receive an email with who they have been randomly select to purchase a gift for.</p>
 			</div>
 
-			<form class="form-horizontal" role="form" data-number-of-people="1" method="POST" action ="./form.php">
+			<form class="form-horizontal" role="form" data-number-of-people="0" method="POST" action ="./form.php">
 
-				<div id="person1">
+				<div id="person0">
 					<div class="form-group">
 							<label for="name1" class="col-sm-2 control-label">Name</label>
 							<div class="col-sm-10">
-							<input type="text" class="form-control" id="name1" name="data[Person][1][name]" placeholder="Enter name">
+							<input type="text" class="form-control" id="name1" name="data[Person][0][name]" placeholder="Enter name">
 							</div>
 					</div>
 
 					<div class="form-group">
 							<label for="email1" class="col-sm-2 control-label">Email</label>
 							<div class="col-sm-10">
-								<input type="email" class="form-control" id="email1" name="data[Person][1][email]" placeholder="Enter email">
+								<input type="email" class="form-control" id="email1" name="data[Person][0][email]" placeholder="Enter email">
 							</div>
 					</div>
 
 					<div class="form-group">
 							<label for="wishlist1" class="col-sm-2 control-label">Wishlist</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="wishlist1" name="data[Person][1][wishlist]" placeholder="Enter wishlist or other details">
+								<input type="text" class="form-control" id="wishlist1" name="data[Person][0][wishlist]" placeholder="Enter wishlist or other details">
 							</div>
 					</div>
 					<hr/>

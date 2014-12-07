@@ -32,10 +32,12 @@
 		<testsuite name="validate">
 			<file>../tests/RandomizePeopleTest.php</file>
 		</testsuite>
+		<testsuite name="validate">
+			<file>../tests/SendEmailsTest.php</file>
+		</testsuite>
 	</testsuites>
 
 	<logging>
-		<!-- HTML reports exported to loadsysdev for viewing. -->
 		<log
 			type="coverage-html"
 			target="../tmp/coverage/html/"
@@ -44,7 +46,6 @@
 			lowUpperBound="60"
 			highLowerBound="90"
 		/>
-		<!-- Text report used by travis helpers to generate the proper coverage badge. -->
 		<log
 			type="coverage-text"
 			target="../tmp/coverage/report.txt"

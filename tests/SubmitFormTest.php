@@ -4,7 +4,9 @@ require_once ( dirname(dirname(__FILE__)) . "/includes/SubmitForm.php");
 class SubmitFormTest extends PHPUnit_Framework_TestCase {
 
 	/**
-	 * [setUp description]
+	 * setup the tests
+	 *
+	 * @return void
 	 */
 	public function setUp() {
 		$this->SubmitForm = new SubmitForm();

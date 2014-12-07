@@ -12,4 +12,3 @@ define('CANONICAL_URL', 'URL_OF_INSTALL_LOCATION');
 define('SMTP_AUTH', true);
 define('SMTP_SECURE', "tls");
 define('SMTP_PORT', 587);
-?>

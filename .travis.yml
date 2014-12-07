@@ -16,6 +16,7 @@ branches:
 
 # Before Installing Software/Dependencies Needed
 before_install:
+  - sh -c "cp ./config/config.sample.php ./config/config.php"
 
 # Install Software/Dependencies Needed
 install:

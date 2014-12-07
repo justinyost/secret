@@ -1,6 +1,7 @@
 <?php
 require_once ( dirname(__FILE__) . "/ValidateFormElements.php");
 require_once ( dirname(__FILE__) . "/RandomizePeople.php");
+require_once ( dirname(__FILE__) . "/SendEmails.php");
 
 /**
  * SubmitForm
@@ -33,10 +34,10 @@ class SubmitForm {
 			return false;
 		}
 
-		$people['Person'] = $data['Person'];
+		$unshuffledPeople = $data['Person'];
 
 		// Person should contain: name/email/wishlist
-		foreach($people['Person'] as &$person) {
+		foreach($unshuffledPeople as &$person) {
 			// sanitize the inputs
 			$person['name'] = filter_var($person['name'], FILTER_SANITIZE_STRING);
 			$person['email'] = filter_var($person['email'], FILTER_SANITIZE_EMAIL);
@@ -45,10 +46,18 @@ class SubmitForm {
 			$ValidateFormElements = new ValidateFormElements();
 			if (
 				!$ValidateFormElements->validateName($person['name'])
-				|| $ValidateFormElements->validateEmail($person['email'])
+				|| !$ValidateFormElements->validateEmail($person['email'])
+				|| !$ValidateFormElements->validateWishlist($person['wishlist'])
 			) {
 				return false;
 			}
 		}
+
+		$shuffledPeople = $unshuffledPeople;
+		$RandomizePeople = new RandomizePeople();
+		$shuffledPeople = $RandomizePeople->randomize($shuffledPeople, $unshuffledPeople);
+
+		$SendEmails = new SendEmails();
+		return $SendEmails->send($shuffledPeople, $unshuffledPeople);
 	}
 }
