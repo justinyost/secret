@@ -16,7 +16,7 @@ class RandomizePeople {
 	 * @return array
 	 */
 	public function randomize($shuffledPeople = array(), $unshuffledPeople = array()) {
-		$shuffledPeople = $this->shuffle($shuffledPeople);
+		shuffle($shuffledPeople);
 		$noOneMatches = true;
 		foreach($shuffledPeople as $key => $data) {
 			if ($data['name'] === $unshuffledPeople[$key]['name']) {
@@ -31,23 +31,4 @@ class RandomizePeople {
 		return $shuffledPeople;
 	}
 
-	/**
-	 * shuffle an array using the Fisher-Yates algorthim
-	 *
-	 * @param  array $array unshuffled array
-	 * @return array
-	 */
-	protected function shuffle(array $array = array()){
-		$i = count($array);
-		while(--$i){
-			$j = mt_rand(0,$i);
-			if($i != $j){
-				// swap items
-				$tmp = $array[$j];
-				$array[$j] = $array[$i];
-				$array[$i] = $tmp;
-			}
-		}
-		return $array;
-	}
 }
