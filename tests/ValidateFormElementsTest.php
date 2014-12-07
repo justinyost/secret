@@ -90,9 +90,9 @@ class ValidateFormElementsTest extends PHPUnit_Framework_TestCase {
 	 * test the validateWishlist method
 	 *
 	 * @dataProvider providerValidateWishlist
-	 * @param  [type] $expectedOut [description]
-	 * @param  [type] $input       [description]
-	 * @return [type]              [description]
+	 * @param  string $expectedOut [description]
+	 * @param  bool $input       [description]
+	 * @return void
 	 */
 	public function testValidateWishlist($expectedOut, $input) {
 		$this->assertSame($expectedOut, $this->ValidateFormElements->validateWishlist($input));
