@@ -13,11 +13,12 @@ class SubmitFormTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * [testCallWithInvalidPostData description]
+	 * test call with invalid post data
 	 *
+	 * @param  [type] $expectedOutput [description]
+	 * @param  array $input           the sample input to the call method
+	 * @return void
 	 * @dataProvider providerCallWithInvalidPostData
-	 * @param  [type] $input [description]
-	 * @return [type]        [description]
 	 */
 	public function testCallWithInvalidPostData($expectedOutput, $input) {
 		$this->assertSame($expectedOutput, $this->SubmitForm->call($input));
@@ -112,4 +113,5 @@ class SubmitFormTest extends PHPUnit_Framework_TestCase {
 			),
 		);
 	}
+
 }
