@@ -9,7 +9,7 @@ class ValidateFormElements {
 	/**
 	 * validate a name value, ensures is a string and not null
 	 *
-	 * @param  string $name a name to validate
+	 * @param string $name a name to validate
 	 * @return bool
 	 */
 	public function validateName($name = null) {
@@ -17,7 +17,7 @@ class ValidateFormElements {
 			return false;
 		}
 
-		if(is_string($name)) {
+		if (is_string($name)) {
 			return true;
 		}
 		return false;
@@ -27,7 +27,7 @@ class ValidateFormElements {
 	 * validate a email value, ensures is a string and not null and passes as a
 	 * valid email
 	 *
-	 * @param  string $email a email to validate
+	 * @param string $email a email to validate
 	 * @return bool
 	 */
 	public function validateEmail($email = null) {
@@ -35,7 +35,7 @@ class ValidateFormElements {
 			return false;
 		}
 
-		if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			return true;
 		}
 
@@ -45,7 +45,7 @@ class ValidateFormElements {
 	/**
 	 * validate a wishlist value, merely returns true
 	 *
-	 * @param  string $wishlist a wishlist to validate
+	 * @param string $wishlist a wishlist to validate
 	 * @return bool
 	 */
 	public function validateWishlist($wishlist = null) {
@@ -55,7 +55,7 @@ class ValidateFormElements {
 	/**
 	 * validate a string value as not null or empty
 	 *
-	 * @param  string $string a string to validate
+	 * @param string $string a string to validate
 	 * @return bool
 	 */
 	protected function validateStringNotNull($string) {

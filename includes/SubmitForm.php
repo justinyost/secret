@@ -14,7 +14,7 @@ class SubmitForm {
 	 * calls the necessary logic to process the form, randomize the people and send
 	 * the emails
 	 *
-	 * @param  array  $postData array of post data from the form
+	 * @param array $postData array of post data from the form
 	 * @return bool
 	 */
 	public function call(array $postData = array()) {
@@ -37,7 +37,7 @@ class SubmitForm {
 		$unshuffledPeople = $data['Person'];
 
 		// Person should contain: name/email/wishlist
-		foreach($unshuffledPeople as &$person) {
+		foreach ($unshuffledPeople as &$person) {
 			// sanitize the inputs
 			$person['name'] = filter_var($person['name'], FILTER_SANITIZE_STRING);
 			$person['email'] = filter_var($person['email'], FILTER_SANITIZE_EMAIL);
@@ -58,6 +58,6 @@ class SubmitForm {
 		$shuffledPeople = $RandomizePeople->randomize($shuffledPeople, $unshuffledPeople);
 
 		$SendEmails = new SendEmails();
-		return $SendEmails->send($shuffledPeople, $unshuffledPeople);
+		return $SendEmails->send($shuffledPeople, $unshuffledPeople, $data['Dollar']['value']);
 	}
 }
