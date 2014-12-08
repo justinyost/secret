@@ -24,8 +24,37 @@ function newFormElementsString(numberOfPeople) {
 	return formString;
 }
 
+function formFeedback(status) {
+	if (status == 1) {
+		$('.feedback').html("<div class='alert alert-success' id='_formFeedback' role='alert'>Every person was randomly assigned a Secret Santa.</div>");
+	} else {
+		$('.feedback').html("<div class='alert alert-warning' id='_formFeedback' role='alert'>Something failed and the emails did not go out. Please <a href="/">try again</a>.</div>");
+	}
+
+}
+
+function formStarted() {
+	$('.feedback').html("<div class='alert alert-info' id='_formStarted' role='alert'>Randomizing and Sending out the emails</div>");
+}
+
+function submitForm(form) {
+	formStarted();
+	$.post(
+		form.attr('action'),
+		form.serialize(),
+		function(data, textStatus) {
+			formFeedback(data);
+		}
+	);
+}
+
 jQuery(document).ready(function(){
 	$('button._add_person').on('click', function() {
 		addAnotherPerson();
+	});
+
+	$('form').on('submit', function(event){
+		submitForm($(this));
+		event.preventDefault();
 	});
 });
