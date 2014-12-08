@@ -58,6 +58,6 @@ class SubmitForm {
 		$shuffledPeople = $RandomizePeople->randomize($shuffledPeople, $unshuffledPeople);
 
 		$SendEmails = new SendEmails();
-		return $SendEmails->send($shuffledPeople, $unshuffledPeople);
+		return $SendEmails->send($shuffledPeople, $unshuffledPeople, $data['Dollar']['value']);
 	}
 }

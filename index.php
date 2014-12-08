@@ -49,21 +49,36 @@
 					</div>
 
 					<div class="form-group">
-							<label for="email1" class="col-sm-2 control-label">Email</label>
-							<div class="col-sm-10">
-								<input type="email" class="form-control" id="email1" name="data[Person][0][email]" placeholder="Enter email">
-							</div>
+						<label for="email1" class="col-sm-2 control-label">Email</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" id="email1" name="data[Person][0][email]" placeholder="Enter email">
+						</div>
 					</div>
 
 					<div class="form-group">
-							<label for="wishlist1" class="col-sm-2 control-label">Wishlist</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="wishlist1" name="data[Person][0][wishlist]" placeholder="Enter wishlist or other details">
-							</div>
+						<label for="wishlist1" class="col-sm-2 control-label">Wishlist</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="wishlist1" name="data[Person][0][wishlist]" placeholder="Enter wishlist or other details">
+						</div>
 					</div>
 					<hr/>
 				</div>
 
+				<div class="form-group">
+					<div>
+						<label for="dollar_value" class="col-sm-2 control-label">Dollar Value</label>
+						<div class="col-sm-2">
+							<select id="dollar_value" name="data[Dollar][value]" class="form-control">
+								<option value="$5.00">$5.00</option>
+								<option value="$10.00">$10.00</option>
+								<option value="$15.00">$15.00</option>
+								<option value="$20.00">$20.00</option>
+								<option value="$25.00">$25.00</option>
+								<option value="$50.00">$50.00</option>
+							</select>
+						</div>
+					</div>
+				</div>
 
 				<div class="form-group">
 					<div>
