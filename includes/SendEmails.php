@@ -12,9 +12,9 @@ class SendEmails {
 	/**
 	 * send the emails for the system
 	 *
-	 * @param  array $shuffledPeople   the array of shuffled people
-	 * @param  array $unshuffledPeople the array of unshuffled people
-	 * @param  string $giftValue       the suggested gift value
+	 * @param array $shuffledPeople   the array of shuffled people
+	 * @param array $unshuffledPeople the array of unshuffled people
+	 * @param string $giftValue       the suggested gift value
 	 * @return array|bool
 	 */
 	public function send($shuffledPeople, $unshuffledPeople, $giftValue = "$25.00") {
@@ -33,10 +33,10 @@ class SendEmails {
 	/**
 	 * send a single email
 	 *
-	 * @param  [type] $person           [description]
-	 * @param  [type] $key              [description]
-	 * @param  [type] $unshuffledPeople [description]
-	 * @param  [type] $giftValue        [description]
+	 * @param array $person           the shuffled person, the email is going out about them
+	 * @param int $key                the key to identify in the array of unshuffled people
+	 * @param array $unshuffledPeople the array of unshuffled people
+	 * @param string $giftValue       the value of the gift to send
 	 * @return void
 	 * @throws Exception If PHPMailer throws an error
 	 */
