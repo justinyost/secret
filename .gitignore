@@ -24,3 +24,4 @@ Lib/puphpet/files/dot/ssh/root_id_rsa.pub
 # Tmp Folder
 !.gitkeep
 /tmp/*
+/build/*
