@@ -52,10 +52,9 @@
 			lowUpperBound="60"
 			highLowerBound="90"
 		/>
-		<!-- Not currently used. -->
-		<!-- <log
+		<log
 			type="coverage-clover"
-			target="../tmp/coverage/clover.xml"
-		/> -->
+			target="../build/logs/clover.xml"
+		/>
 	</logging>
 </phpunit>
