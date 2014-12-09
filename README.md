@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/jtyost2/secret.svg?branch=master)](https://travis-ci.org/jtyost2/secret)
 
+[![Code Climate](https://codeclimate.com/github/jtyost2/secret/badges/gpa.svg)](https://codeclimate.com/github/jtyost2/secret)
+
 Performs logic and emailing of a very simple Secret Santa type drawing
 
 ## Installation ##
