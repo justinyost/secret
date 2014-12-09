@@ -6,7 +6,9 @@ php:
   - 5.5
   - 5.6
 
-env:
+addons:
+  code_climate:
+    repo_token: 152462145e4486e4f013fbf82a6a95812808bbe4223bc84c0bee9738aeab0f70
 
 # Branches to be built or not
 branches:
@@ -29,6 +31,9 @@ before_script:
 script:
   - ./bin/run-tests
   - ./bin/run-codesniffer y
+
+after_success:
+  - vendor/bin/test-reporter
 
 notifications:
   email: false
