@@ -32,9 +32,9 @@ script:
   - ./bin/run-tests
   - ./bin/run-codesniffer y
 
-after_success:
-  - CODECLIMATE_REPO_TOKEN="152462145e4486e4f013fbf82a6a95812808bbe4223bc84c0bee9738aeab0f70" ./vendor/bin/test-reporter --stdout > codeclimate.json
-  - curl -X POST -d @codeclimate.json -H 'Content-Type: application/json' -H 'User-Agent: Code Climate (PHP Test Reporter v0.1.1)' https://codeclimate.com/test_reports
+after_script:
+  - CODECLIMATE_REPO_TOKEN="152462145e4486e4f013fbf82a6a95812808bbe4223bc84c0bee9738aeab0f70" vendor/bin/test-reporter --stdout > codeclimate.json
+  - sh -c "curl -X POST -d @codeclimate.json -H 'Content-Type: application/json' -H 'User-Agent: Code Climate (PHP Test Reporter v0.1.1)' https://codeclimate.com/test_reports"
 
 notifications:
   email: false
