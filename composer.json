@@ -25,6 +25,7 @@
     "phpunit/phpunit": "4.3.*",
     "phpdocumentor/phpdocumentor": "2.*@beta",
     "loadsys/loadsys_codesniffer": "1.*",
-    "johnkary/phpunit-speedtrap": "~1.0@dev"
+    "johnkary/phpunit-speedtrap": "~1.0@dev",
+    "codeclimate/php-test-reporter": "dev-master"
   }
 }
