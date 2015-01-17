@@ -17,10 +17,7 @@ class ValidateFormElements {
 			return false;
 		}
 
-		if (is_string($name)) {
-			return true;
-		}
-		return false;
+		return true;
 	}
 
 	/**
@@ -59,14 +56,14 @@ class ValidateFormElements {
 	 * @return bool
 	 */
 	protected function validateStringNotNull($string) {
-		if (is_null($string)) {
+		if (is_null($string) || empty($string)) {
 			return false;
 		}
 
-		if (empty($string)) {
-			return false;
+		if (is_string($string)) {
+			return true;
 		}
 
-		return true;
+		return false;
 	}
 }
