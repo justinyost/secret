@@ -41,7 +41,7 @@ class SendEmails {
 	 * @throws Exception If PHPMailer throws an error
 	 */
 	public function sendEmail($person, $key, $unshuffledPeople, $giftValue) {
-		$PHPMailer = new PHPMailer(true);
+		$PHPMailer = $this->returnPHPMailerInstance();
 		$PHPMailer->isSMTP();
 		$PHPMailer->Host = MAIL_SERVER;
 		$PHPMailer->SMTPAuth = SMTP_AUTH;
@@ -63,7 +63,7 @@ class SendEmails {
 		$messageHtml = "<p>Hi " . $unshuffledPeople[$key]['name'] . ",</p>";
 		$messageHtml .= "<p>You are assigned to purchase a " . $giftValue . " dollar or less gift for " . $person['name'] . ". Their email address is: " . $person['email'] . "</p>";
 
-		if (!empty($person['other'])) {
+		if (!empty($person['wishlist'])) {
 			$messageHtml .= "<p>Some other information: " . $person['wishlist'] . "</p>";
 		}
 
@@ -71,5 +71,14 @@ class SendEmails {
 
 		$PHPMailer->MsgHTML($messageHtml);
 		$PHPMailer->Send();
+	}
+
+	/**
+	 * return an instance of the PHPMailer Class
+	 *
+	 * @return object PHPMailer instance
+	 */
+	protected function returnPHPMailerInstance() {
+		return new PHPMailer(true);
 	}
 }
