@@ -53,11 +53,30 @@ class SubmitForm {
 			}
 		}
 
-		$shuffledPeople = $unshuffledPeople;
-		$RandomizePeople = new RandomizePeople();
-		$shuffledPeople = $RandomizePeople->randomize($shuffledPeople, $unshuffledPeople);
+		$SendEmails = $this->returnSendEmailsInstance();
+		$RandomizePeople = $this->returnRandomizePeopleInstance();
 
-		$SendEmails = new SendEmails();
-		return $SendEmails->send($shuffledPeople, $unshuffledPeople, $data['Dollar']['value']);
+		$shuffledPeople = $unshuffledPeople;
+		$shuffledPeople = $RandomizePeople->randomize($shuffledPeople, $unshuffledPeople);
+		$result = $SendEmails->send($shuffledPeople, $unshuffledPeople, $data['Dollar']['value']);
+		return $result;
+	}
+
+	/**
+	 * return an instance of RandomizePeople
+	 *
+	 * @return object RandomizePeople instance
+	 */
+	protected function returnRandomizePeopleInstance() {
+		return new RandomizePeople();
+	}
+
+	/**
+	 * return an instance of SendEmails
+	 *
+	 * @return object SendEmails instance
+	 */
+	protected function returnSendEmailsInstance() {
+		return new SendEmails();
 	}
 }
