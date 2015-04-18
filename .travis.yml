@@ -30,5 +30,8 @@ script:
   - ./bin/run-tests
   - ./bin/run-codesniffer y
 
+after_script:
+  - php vendor/bin/coveralls -v
+
 notifications:
   email: false
