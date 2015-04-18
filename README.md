@@ -4,6 +4,8 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://api.travis-ci.org/jtyost2/secret.svg)](https://travis-ci.org/jtyost2/secret)
 
+[![Code Climate](https://codeclimate.com/github/jtyost2/secret/badges/gpa.svg)](https://codeclimate.com/github/jtyost2/secret)
+
 Performs logic and emailing of a very simple Secret Santa type drawing
 
 ## Installation ##
