@@ -1,5 +1,7 @@
 # Secret Santa #
 
+[![Latest Version](https://img.shields.io/github/release/jtyost2/secret.svg?style=flat-square)](https://github.com/jtyost2/secret/releases)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://travis-ci.org/jtyost2/secret.svg?branch=master)](https://travis-ci.org/jtyost2/secret)
 
 Performs logic and emailing of a very simple Secret Santa type drawing
