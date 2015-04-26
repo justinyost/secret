@@ -1,93 +1,108 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ctag="http://commontag.org/ns#" lang="en" dir="ltr" version="XHTML+RDFa 1.0" >
+<!DOCTYPE html>
+<html lang="en">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta charset="utf-8">
 		<title>Secret Santa</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Secret Santa">
 
-		<!--CSS-->
-		<link href="./includes/css/screen.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
-		<link href="./includes/css/custom.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
-		<link href="./includes/css/print.css" rel="stylesheet" type="text/css" media="print" charset="utf-8" />
-		<!--[if IE]><link href="./includes/css/ie.css" rel="stylesheet" type="text/css" media="print" charset="utf-8" /><![endif]-->
+		<!-- Le styles -->
+		<link href="./css/bootstrap.min.css" rel="stylesheet">
+		<link href="./css/bootstrap-theme.min.css" rel="stylesheet">
+		<link href="./css/custom.css" rel="stylesheet">
 
-		<!--JS-->
-		<script type="text/javascript" src="./includes/js/email.js" charset="utf-8"></script>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+  </head>
 
-		<!--Meta-->
-		<meta http-equiv="X-UA-Compatible" content="chrome=1"/>
-		<meta http-equiv="X-UA-Compatible" content="IE=8" />
-		<meta http-equiv="description" content="A simple and open source web app to do a random secret santa drawing."/>
+  <body role="document">
 
-    	<?php require_once("./config.php"); ?>
-
-    	<link rel="canonical" href="<?php echo CANONICAL_URL; ?>" />
-    	<?php $rand_key = time(); mt_srand($rand_key); $form_key = mt_rand(); ?>
-	</head>
-	<body class="container">
-
-		<div class="header span-24">
-			<a href="http://secret.yostivanich.com/"><h1 id="title">Secret Santa</h1></a>
-			<p>by <a href="http://www.yostivanich.com" title="Justin Yost">Justin Yost</a></p>
-		</div>
-		<noscript><div class="span-24 notice"><p>This App Really Requires JavaScript To Work!!</p></div></noscript>
-		<hr></hr>
-		<div class="body span-24">
-			<div id="what">
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+			  <div class="navbar-header">
+			    <a class="navbar-brand" href="#">Secret Santa</a>
+			  </div>
+			  <div id="navbar" class="navbar-collapse collapse">
+			  </div><!--/.nav-collapse -->
 			</div>
-			<div id="form">
-				<form action="sendEmails.php" name="sendEmails" method="get">
-					<fieldset>
-						<legend>Add Each Person and Their Email</legend>
-						<div class="span-6 colborder" id="formName">
-							<p><label for="name_1">Name:</label><br/><input type="text" maxlength="255" value="" name="name_1" class="formNames span-5" tabindex="1"></input></p>
+		</nav> <!-- Nav -->
+
+		<div class="container theme-showcase" role="main">
+			<div class="page-header">
+				<h1>Secret Santa</h1>
+				<p>Add each person's name and email who is participating in the Secret Santa drawing. Select the suggested price and hit the send email button. Everyone will receive an email with who they have been randomly select to purchase a gift for.</p>
+			</div>
+			<div class="feedback">
+			</div>
+
+			<form class="form-horizontal" role="form" data-number-of-people="0" method="POST" action ="./form.php">
+
+				<div id="person0">
+					<div class="form-group">
+							<label for="name1" class="col-sm-2 control-label">Name</label>
+							<div class="col-sm-10">
+							<input type="text" class="form-control" id="name1" name="data[Person][0][name]" placeholder="Enter name">
+							</div>
+					</div>
+
+					<div class="form-group">
+						<label for="email1" class="col-sm-2 control-label">Email</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" id="email1" name="data[Person][0][email]" placeholder="Enter email">
 						</div>
-						<div class="span-6 colborder" id="formEmail">
-							<p><label for="email_1">Email:</label><br/><input type="email" maxlength="255" value="" name="email_1"  class="formEmails span-5" tabindex="2"></input></p>
+					</div>
+
+					<div class="form-group">
+						<label for="wishlist1" class="col-sm-2 control-label">Wishlist</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="wishlist1" name="data[Person][0][wishlist]" placeholder="Enter wishlist or other details">
 						</div>
-						<div class="span-6 colborder" id="formOther">
-							<p><label for="other_1">Other Information:</label><br/><textarea value="" name="other_1"  class="formOther" tabindex="3" rows="3" cols="30"></textarea></p>
-						</div>
-						<div class="span-3 last">
-							<p><label for="email_1">Gift Value:</label><br/>
-							<select id="gift_value" name="gift_value">
-								<option value="5">$5.00</option>
-								<option value="10">$10.00</option>
-								<option value="15">$15.00</option>
-								<option value="20" selected="selected">$20.00</option>
-								<option value="25">$25.00</option>
-								<option value="30">$30.00</option>
-								<option value="35">$35.00</option>
-								<option value="40">$40.00</option>
-								<option value="45">$45.00</option>
-								<option value="50">$50.00</option>
+					</div>
+					<hr/>
+				</div>
+
+				<div class="form-group">
+					<div>
+						<label for="dollar_value" class="col-sm-2 control-label">Dollar Value</label>
+						<div class="col-sm-2">
+							<select id="dollar_value" name="data[Dollar][value]" class="form-control">
+								<option value="$5.00">$5.00</option>
+								<option value="$10.00">$10.00</option>
+								<option value="$15.00">$15.00</option>
+								<option value="$20.00">$20.00</option>
+								<option value="$25.00">$25.00</option>
+								<option value="$50.00">$50.00</option>
 							</select>
-							</p>
 						</div>
-						<div class="span-24">
-							<p><input type="button" id="addAnotherPerson" value="Add Another Person"></input></p>
-							<p><input type="submit" id="submit" value="Shuffle Names and Send Emails"></input></p>
-						</div>
-						<input type="hidden" value="<?php echo $rand_key; ?>" name="rand_key" id="rand_key"/>
-						<input type="hidden" value="<?php echo $form_key; ?>" name="form_key" id="form_key"/>
-						<input type="hidden" value="1" name="number_ppl" id="number_ppl"/>
-						<input type="hidden" value="sendEmails.php" name="script" id="script"/>
-					</fieldset>
-				</form>
-			</div>
-			<div id="onSubmit" class="span-24 hidden"><p class="notice">Names being shuffled and emails sent off.</p></div>
-			<div id="results" class="span-24 hidden"></div>
-		</div>
-		<div class="footer" class="span-24">
-			<p>
-				<div class="span-7 colborder"><p>&copy; <?php echo date('Y'); ?> Justin Yost <a rel="license" href="http://www.opensource.org/licenses/mit-license.php">MIT Lincensed</a></p></div>
-				<div class="span-8 colborder"><p>Privacy: Names and emails aren't stored in any way.</p></div>
-				<div class="span-7 last"><p>Contact Me: <script type="text/javascript">emailMe();</script></p></div>
-			</p>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div>
+						<button type="button" class="btn btn-info _add_person">
+							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add another person
+						</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<div>
+						<button type="submit" class="btn btn-primary">Randomize and Email Participants</button>
+					</div>
+				</div>
+
+			</form>
 		</div>
 
-		<!--JS-->
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-		<script type="text/javascript" src="./includes/js/secret_santa.js" charset="utf-8"></script>
+		<!-- javascript -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="./js/bootstrap.min.js"></script>
+		<script src="./js/jquery.scripts.js"></script>
+		<!---
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', '<?php echo GOOGLE_ANALYTICS_ID; ?>']);
@@ -99,5 +114,6 @@
     			document.documentElement.firstChild.appendChild(ga);
   			})();
 		</script>
-	</body>
+		--->
+  </body>
 </html>

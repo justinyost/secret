@@ -1,0 +1,48 @@
+sudo: false
+
+language: php
+
+php:
+  - 5.3
+  - 5.4
+  - 5.5
+  - 5.6
+
+env:
+  - PHPTESTS=1
+
+matrix:
+  fast_finish: true
+  include:
+    - php: 5.6
+      env:
+      - PHPMD=1
+    - php: 5.6
+      env:
+      - PHPCS=1
+
+# Branches to be built or not
+branches:
+  # Blacklist these branches
+  except:
+    - gh-pages
+
+# Before Installing Software/Dependencies Needed
+before_install:
+  - sh -c "cp ./config/config.sample.php ./config/config.php"
+
+# Install Software/Dependencies Needed
+install:
+  - git submodule update --init --recursive
+  - composer install --dev --no-interaction
+
+before_script:
+  - phpenv rehash
+
+script:
+  - "if [ \"${PHPCS}\" = \"1\" ];  then ./bin/run-codesniffer y;  else true; fi"
+  - "if [ \"${PHPTESTS}\" = \"1\" ];  then ./bin/run-tests;     else true; fi"
+  - "if [ \"${PHPMD}\" = \"1\" ];  then ./bin/run-phpmd;          else true; fi"
+
+notifications:
+  email: false
