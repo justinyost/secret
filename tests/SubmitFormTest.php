@@ -3,7 +3,6 @@ require_once ( dirname(dirname(__FILE__)) . "/includes/SubmitForm.php");
 
 /**
  * Class TestSubmitForm
- *
  */
 class TestSubmitForm extends SubmitForm {
 	public function returnRandomizePeopleInstance() {
@@ -16,7 +15,7 @@ class TestSubmitForm extends SubmitForm {
 }
 
 /**
- *
+ * SubmitFormTest
  */
 class SubmitFormTest extends PHPUnit_Framework_TestCase {
 
