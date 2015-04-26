@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+#---------------------------------------------------------------------
+usage ()
+{
+	cat <<EOT
+
+${0##*/}
+    Convenience wrapper around Cake's test console command. Will
+    Run the Test or Suite specified as $1.
+
+Usage:
+    bin/${0##*/} <Case or Suite> [generate coverage]
+
+    Pass a Test Case or Suite name as the first argument.
+
+
+EOT
+
+	exit 0
+}
+if [ "$1" = '-h' ]; then
+	usage
+fi
+
+
+umask a+rw
+
+DIR="$( cd -P "$( dirname "$0" )"/.. >/dev/null 2>&1 && pwd )"
+BIN_DIR="${DIR}/bin"
+PHPUNIT_CONFIG="${DIR}/config/phpunit.xml"
+
+${BIN_DIR}/run-in-vagrant "./vendor/bin/phpunit --configuration="${PHPUNIT_CONFIG}" "$@""
