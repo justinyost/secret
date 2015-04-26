@@ -21,19 +21,13 @@ class SubmitForm {
 		if (
 			!is_array($postData)
 			|| !array_key_exists('data', $postData)
+			|| !is_array($postData['data'])
+			|| !array_key_exists('Person', $postData['data'])
 		) {
 			return false;
 		}
 
-		$data = ($postData['data']) ? $postData['data'] : null;
-
-		if (
-			!is_array($data)
-			|| !array_key_exists('Person', $data)
-		) {
-			return false;
-		}
-
+		$data = $postData['data'];
 		$unshuffledPeople = $data['Person'];
 
 		// Person should contain: name/email/wishlist
@@ -47,7 +41,6 @@ class SubmitForm {
 			if (
 				!$ValidateFormElements->validateName($person['name'])
 				|| !$ValidateFormElements->validateEmail($person['email'])
-				|| !$ValidateFormElements->validateWishlist($person['wishlist'])
 			) {
 				return false;
 			}

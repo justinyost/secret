@@ -40,16 +40,6 @@ class ValidateFormElements {
 	}
 
 	/**
-	 * validate a wishlist value, merely returns true
-	 *
-	 * @param string $wishlist a wishlist to validate
-	 * @return bool
-	 */
-	public function validateWishlist($wishlist = null) {
-		return true;
-	}
-
-	/**
 	 * validate a string value as not null or empty
 	 *
 	 * @param string $string a string to validate

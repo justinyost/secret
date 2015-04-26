@@ -82,40 +82,4 @@ class ValidateFormElementsTest extends PHPUnit_Framework_TestCase {
 		);
 	}
 
-	/**
-	 * test the validateWishlist method
-	 *
-	 * @dataProvider providerValidateWishlist
-	 * @param  string $expectedOut [description]
-	 * @param  bool $input       [description]
-	 * @return void
-	 */
-	public function testValidateWishlist($expectedOut, $input) {
-		$this->assertSame($expectedOut, $this->ValidateFormElements->validateWishlist($input));
-	}
-
-	public function providerValidateWishlist() {
-		return array(
-			'Null Value' => array(
-				true,
-				null,
-			),
-			'Empty String' => array(
-				true,
-				"",
-			),
-			'Non Safe String' => array(
-				true,
-				"<>",
-			),
-			'URL in string' => array(
-				true,
-				"https://www.testing.com/",
-			),
-			'Non Empty String' => array(
-				true,
-				"asdfasdf",
-			),
-		);
-	}
 }
