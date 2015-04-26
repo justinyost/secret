@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+DIR="$( cd -P "$( dirname "$0" )"/.. >/dev/null 2>&1 && pwd )"
+BIN_DIR="${DIR}/bin"
+PHPMD_CONFIG="${DIR}/config/phpmd.xml"
+
+${BIN_DIR}/run-in-vagrant "${DIR}/vendor/bin/phpmd ${DIR}/includes text "${PHPMD_CONFIG}""
